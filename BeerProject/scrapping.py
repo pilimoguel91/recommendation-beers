@@ -36,9 +36,9 @@ response = requests.get('https://untappd.com/search/more_search/beer', params=pa
 
 soup = BeautifulSoup(response.text, 'html.parser')
 
-beers = soup.findAll('div', attrs={'class': 'beer-item'})
+beers_sample = soup.findAll('div', attrs={'class': 'beer-item'})
 beer_dicts = []
-for beer in beers:
+for beer in beers_sample:
     beer_details = beer.find('div', attrs={'class': 'beer-details'})
     details_beer = beer.find('div', attrs={'class': 'details beer'})
     beer_details_paragraphs = beer_details.findAll('p')
