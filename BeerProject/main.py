@@ -1,3 +1,4 @@
+# Databricks notebook source
 import pip
 import requests
 
@@ -50,7 +51,7 @@ while True:
     response = requests.get('https://untappd.com/search/more_search/beer', params=params, cookies=cookies, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
     beers = soup.findAll('div', attrs={'class': 'beer-item'})
-    if len(beers) == 0 or len(beers) < 25:
+    if len(beers) == 0:
         print(len(beers))
         break
     else:
