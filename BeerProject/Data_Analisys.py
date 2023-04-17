@@ -11,8 +11,16 @@ from requests.structures import CaseInsensitiveDict
 
 # COMMAND ----------
 
-# MAGIC %run ./main.py
+beers_json_pdf = pd.read_json(f'beers.json')
+beers
+
+beers_json_sdf =spark.createDataFrame(beers_json_pdf) 
+
+beers_json_sdf.createOrReplaceTempView("beers_json_sql")
+
 
 # COMMAND ----------
 
-pd.read_json(f'beers.json').count()
+# MAGIC %sql
+# MAGIC 
+# MAGIC SELECT * FROM beers_sql
